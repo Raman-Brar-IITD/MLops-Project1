@@ -25,7 +25,7 @@ class MongoDBClient:
 
     client=None # Shared MongoClient instance across all MongoDBClient instances
 
-    def _init_(self,database_name:str=DATABASE_NAME)->None:
+    def __init__(self,database_name:str=DATABASE_NAME)->None:
         """
         Initializes a connection to the MongoDB database. If no existing connection is found, it establishes a new one.
 
@@ -52,7 +52,7 @@ class MongoDBClient:
             self.database_name=database_name
             logging.info("MongoDB connection succesful")
         except Exception as e :
-             raise MyException(e,sys) # type: ignore
+            raise MyException(e,sys) 
             
 
                

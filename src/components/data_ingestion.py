@@ -52,13 +52,14 @@ class DataIngestion:
         """
         logging.info("Entered split_data_as_train_test Method of Data Ingestion class")
         try:
-            train_set,test_set=train_test_split(dataframe,test_size=self.data_ingestion_config.train_test_splt_ratio)
+            train_set,test_set=train_test_split(dataframe,test_size=self.data_ingestion_config.train_test_split_ratio)
             logging.info("Performed train test split on the dataframe")
             logging.info("Exited split_data_as_train_test method of Data_Ingestion class"
             )
             dir_path=os.path.dirname(self.data_ingestion_config.training_file_path)
             os.makedirs(dir_path,exist_ok=True)
-
+            train_set.to_csv(self.data_ingestion_config.training_file_path, index=False, header=True)
+            test_set.to_csv(self.data_ingestion_config.testing_file_path,  index=False, header=True)
             logging.info("Exporting train and test file path.")
         
         except Exception as e:

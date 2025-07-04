@@ -6,7 +6,7 @@ DATABASE_NAME = "Project0"
 COLLECTION_NAME = "Project-vehcile"
 MONGODB_URL_KEY = "MONGODB_URL"
 
-PIPELINE_NAME: str = ""
+PIPELINE_NAME: str = "pipe"
 ARTIFACT_DIR: str = "artifact"
 
 MODEL_FILE_NAME = "model.pkl"
