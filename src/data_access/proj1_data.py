@@ -41,7 +41,7 @@ class Proj1Data:
             if database_name is None:
                 collection=self.mongo_client.database[collection_name]
             else:
-                collection=self.mongo_client[database_name][collection_name]
+                collection=self.mongo_client.client[database_name][collection_name]
             
             #convert collection data to Dataframe and preprocess
 
@@ -51,7 +51,7 @@ class Proj1Data:
             print(f"Data fetched with len:{len(df)}")
 
             if "id" in df.columns.tolist():
-                df=df.drop(columns=["id"],axis=1)
+                df=df.drop(columns=["id","_id"],axis=1)
             df.replace({"na":np.nan},inplace=True)
             return df
         except Exception as e:
