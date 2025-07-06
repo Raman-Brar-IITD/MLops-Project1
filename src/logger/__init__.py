@@ -37,6 +37,8 @@ def configure_logger():
     #Adding handlers to logger
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
+    
+    logging.getLogger("pymongo").setLevel(logging.WARNING)
 
 #configure the logger
 configure_logger()
